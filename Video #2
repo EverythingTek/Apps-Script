@@ -1,0 +1,69 @@
+//Hello all
+//Today we are going to be learning how to custom format a sheet from apps script
+
+function onOpen()
+{
+  //This function gets triggered when the sheet gets opened
+  //In this function we are going to create a new menu
+  //In that menu we are going to have a bunch of options
+  //This is just a template
+  //We highly reccomend you experiment with what is shown and use it to your needs
+  let ui = SpreadsheetApp.getUi();
+  ui.createMenu("Features")
+  .addItem("Hide Row", "hideRow") //the second string calls the hide row function (which we will make later)
+  .addItem("Hide Column", "hideColumn") 
+  .addItem("Share with Editors", "addEditor")
+  .addItem("Share with Viewers", "addViewer")
+  .addToUi();
+}
+
+function hideRow()
+{
+  //The purpose of this function is to hide a row
+  //NOTE: When you first use the menu you will get a message from google
+  //You have to sign in and give apps script some permissions
+
+  let sheet = SpreadsheetApp.getActiveSheet();
+  //This gets the sheet
+  let cell = sheet.getActiveCell();
+  //This gets the active cell
+  sheet.hideRows(cell.getRow());
+  //This hides the row
+}
+
+//Okay now lets make another function
+function hideColumn()
+{
+  //In this function we will hide the column of the user
+  //lets copy paste the code from above
+
+    let sheet = SpreadsheetApp.getActiveSheet();
+  //This gets the sheet
+  let cell = sheet.getActiveCell();
+  //This gets the active cell
+  sheet.hideColumns(cell.getColumn());
+  //This hides the column
+}
+//Sometimes apps script is slow so reloading never hurts (Unless you forgot to save your apps script file)
+
+function addEditor()
+{
+  //If you share you document with the same people
+  //This is the perfect function for you
+  let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  spreadsheet.addEditor("something@something.com") //Insert the email address of the person you would like to share it with here
+
+}
+
+function addViewer()
+{
+  let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  spreadsheet.addViewer("something@something.com") //Insert the email address of the person you would like to share 
+}
+
+
+//Thank you for watching
+//In the next video I will continue showing other types of functions to format sheets
+//Please like and sub if you enjoyed
+//Also we have a github account where all of our codes will be posted
+//Link the in description below
