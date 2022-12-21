@@ -1,0 +1,33 @@
+//So there should be a premade function here
+//Delete that and we are going to start from scratch
+//NOTE: Make sure to save progress you make by clicking the save button on the top
+
+function addition(input1, input2)
+{
+  //This will take two numbers add them and return them
+  return input1 + input2;
+}
+
+function subtraction(input1, input2)
+{
+  //This will take two numbers and subtract one from the other
+  return input1 - input2;
+}
+
+function multiplication(input1, input2)
+{
+  //This will take two numbers and multiply them
+  return input1 * input2;
+}
+
+function division(input1, input2)
+{
+  //This function will take two numbers and divide one by the other
+  return input1 / input2;
+}
+
+function remainder(input1, input2)
+{
+  //You guessed it. This function will take two numbers and divide one by the other and find the remainder
+  return input1 % input2;
+}
