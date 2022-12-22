@@ -1,0 +1,61 @@
+//Hello All:
+//Today we are going to go over some more function that allow you to format the sheet from apps script
+//These are the functions
+//Sort
+//Auto resize Colums
+//Auto Resize Rows
+//Clear (Format or Format and Contents)
+
+function onOpen()
+{
+  SpreadsheetApp.getUi()
+  .createMenu("New Features")
+  .addItem("Sort", "sort") //This creates a new menu item that calls the sort function
+  .addSubMenu(SpreadsheetApp.getUi().createMenu("Auto Resize")
+    .addItem("Rows", "rows")
+    .addItem("Columns", "columns"))
+  .addSubMenu(SpreadsheetApp.getUi().createMenu("Clear")
+  .addItem("Format", "clearFormat")
+  .addItem("Contents and Format", "clearBoth"))
+  .addToUi();
+}
+
+function sort()
+{
+  let sheet = SpreadsheetApp.getActiveSheet();
+  sheet.sort(sheet.getActiveCell().getColumn());
+  //This sorts the sheet by the first column
+  //If you would like to sort descending then use this function
+  //sheet.sort(sheet.getActiveCell().getColumn(), false)
+}
+
+function rows()
+{
+  let sheet = SpreadsheetApp.getActiveSheet();
+  sheet.autoResizeRows(SpreadsheetApp.getSelection().getActiveRange().getRowIndex(), 
+  SpreadsheetApp.getSelection().getActiveRange().getNumRows())
+  //This will resize those rows that we have selected
+}
+
+function columns()
+{
+  let sheet = SpreadsheetApp.getActiveSheet();
+  sheet.autoResizeColumns(SpreadsheetApp.getSelection().getActiveRange().getColumn(), 
+  SpreadsheetApp.getSelection().getActiveRange().getNumColumns())
+  //This will resize those colums that we have selected
+}
+
+//That just resized all the columns
+
+function clearFormat()
+{
+  SpreadsheetApp.getActiveSheet().getActiveRange().clearFormat();
+}
+
+function clearBoth()
+{
+  SpreadsheetApp.getActiveSheet().getActiveRange().clear({ formatOnly: true, contentsOnly: true});
+}
+
+//Thank you for watching
+//The link to the github page will be in the description
